@@ -1,0 +1,69 @@
+# .github/workflows/ci.yml
+name: CI - Build, Test, Coverage & Notify
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Clonación del repo
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2) Preparar .NET (ajusta si tu proyecto usa otra versión)
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      # 3) Restaurar dependencias
+      - name: Restore
+        run: dotnet restore
+
+      # 4) Compilar
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      # 5) Ejecutar pruebas unitarias + cobertura + TRX
+      - name: Test (with coverage)
+        run: |
+          dotnet test --configuration Release \
+            --logger "trx;LogFileName=test_results.trx" \
+            --results-directory TestResults \
+            --collect "XPlat Code Coverage"
+
+      # 6) Publicar resultados de pruebas en el resumen/PR
+      - name: Publish test results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: "TestResults/**/*.trx"
+
+      # 7) Generar reporte HTML de cobertura
+      - name: Generate coverage report (ReportGenerator)
+        uses: danielpalme/ReportGenerator-GitHub-Action@5.4.12
+        with:
+          reports: "TestResults/**/coverage.cobertura.xml"
+          targetdir: "coveragereport"
+          reporttypes: "HtmlInline;Cobertura;MarkdownSummaryGithub"
+
+      # 8) Adjuntar artefactos (HTML cobertura + TRX)
+      - name: Upload artifacts (reports & trx)
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-and-coverage-reports
+          path: |
+            TestResults/**/*.trx
+            TestResults/**/coverage.cobertura.xml
+            coveragereport/**
