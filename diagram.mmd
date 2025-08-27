@@ -1,0 +1,11 @@
+flowchart LR
+  A[Push o Pull Request] --> B[Checkout del repositorio]
+  B --> C[Setup .NET SDK]
+  C --> D[Restore & Build]
+  D --> E[dotnet test + cobertura]
+  E --> F[Publicar resultados (TRX) en Summary/PR]
+  E --> G[Generar reporte HTML de cobertura]
+  F --> H[Subir artefactos (TRX + cobertura + HTML)]
+  G --> H
+  E --> I[Notificación (Slack o GitHub)]
+  H --> J[Fin]
