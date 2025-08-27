@@ -1,0 +1,12 @@
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/bin/Release/net8.0/MauiClimaDemo.Core.deps.json
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/bin/Release/net8.0/MauiClimaDemo.Core.dll
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/bin/Release/net8.0/MauiClimaDemo.Core.pdb
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/obj/Release/net8.0/MauiClimaDemo.Core.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/obj/Release/net8.0/MauiClimaDemo.Core.AssemblyInfoInputs.cache
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/obj/Release/net8.0/MauiClimaDemo.Core.AssemblyInfo.cs
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/obj/Release/net8.0/MauiClimaDemo.Core.csproj.CoreCompileInputs.cache
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/obj/Release/net8.0/MauiClimaDemo.Core.sourcelink.json
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/obj/Release/net8.0/MauiClimaDemo.Core.dll
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/obj/Release/net8.0/refint/MauiClimaDemo.Core.dll
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/obj/Release/net8.0/MauiClimaDemo.Core.pdb
+/workspaces/MauiClimaDemo/MauiClimaDemo.Core/obj/Release/net8.0/ref/MauiClimaDemo.Core.dll
