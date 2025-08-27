@@ -15,24 +15,13 @@ Este proyecto implementa un flujo de integración continua (CI) que incluye:
 
 ```mermaid
 flowchart LR
-    A[Push o Pull Request] --> B[Checkout del repositorio]
-    B --> C[Setup .NET SDK]
-    C --> D[Restore & Build]
-    D --> E[Run Tests con cobertura]
-    E --> F[Generar reportes]
-    F --> G[Notificación Slack/Email opcional]
+  A[Push o Pull Request] --> B[Checkout del repositorio]
+  B --> C[Setup .NET SDK]
+  C --> D[Restore & Build]
+  D --> E[Run Tests con cobertura]
+  E --> F[Generar reportes]
+  F --> G[Notificación Slack/Email opcional]
 
 
----
-
-## 📊 Evidencias del pipeline
-
-### ✅ Ejecución exitosa del workflow
-![Run Exitoso](docs/images/run_exitoso.png)
-
-### 🧪 Resultados de pruebas
-![Resultados de Tests](docs/images/test_results.png)
-
-### 📈 Reporte de cobertura
-![Coverage Artifact](docs/images/coverage_artifact.png)
+```
 
